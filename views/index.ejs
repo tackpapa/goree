@@ -47,25 +47,35 @@
 </div>
 <div class="fluid-container">
 
-    <div class="jumbotron" style="width:100%; height:60%;background:url(http://www.massingenuity.com/wp-content/uploads/2012/08/Aligning-Stars.jpg)">
+    <div class="fluid-container" style="width:100%; height:700px;background:url(http://www.massingenuity.com/wp-content/uploads/2012/08/Aligning-Stars.jpg)">
 
         <br/><br/><br/>
         <div style="border-radius:10px; background-color:white; width: 400px; height:150px; margin:0px auto;  opacity:1;" class="container">
             <h2 style="font-size:40px; color:#0D2C54; text-align:center; opacity:1 !important;">Search Stars</h2>
+            <form action="/insertquery" method="post">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                  <form action="/insertquery" method="post">
+
                       <input type="hidden" name="_csrf" value="<%=_csrf%>">
-                    <input type="text" class="form-control input-md"  name="query" placeholder="Search by Name"/>
-
+                    <input type="text" class="form-control input-md" name="query" placeholder="Search by Name"/>
                     <span class="input-group-btn">
-                        <input class="btn btn-info btn-lg" type="submit" value="submit">
+                        <button class="btn btn-info btn-lg" type="submit" >
                             <i class="glyphicon glyphicon-search"></i>
-
+                          </button>
                     </span>
-                  </form>
+
                 </div>
-            </div>
+
+            </div></form>
+        </div>
+        <div class="col-md-8 col-md-offset-2" style="background-color:#FFB400; border-radius:10px;  height:150px;margin-top:70px;" >
+        <h3>Are you a fan?</h3>
+        <p>Find celebrities and ask heavy questions with a bet!</p>
+
+        </div>
+        <div class="col-md-8 col-md-offset-2" style="background-color:#7FB800; border-radius:10px;  height:150px;margin-top:30px;" >
+          <h3>Are you famous?</h3>
+        <p>Answer your fans and earn cash! (and donate maybe?)</p>
         </div>
     </div>
 

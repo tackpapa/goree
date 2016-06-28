@@ -128,6 +128,7 @@ app.post('/insertquery', passportConfig.isAuthenticated, apiController.insertque
 app.get('/star/:id', passportConfig.isAuthenticated, apiController.findstar)
 app.post('/postquestion', questionController.postquestion)
 app.post('/postresponse/:id', questionController.postresponse)
+app.get('/chargeone/:id', questionController.chargeone)
 
 /**
  * API examples routes.

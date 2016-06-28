@@ -43,3 +43,17 @@ exports.postresponse = (req, res) => {
   });
 
 };
+exports.chargeone = (req, res) => {
+    User.findOne({_id:req.params.id},function(err, user){
+      if(err){console.log("charging error",err)}
+      else{
+        console.log(user)
+        user.money = user.money - 1
+        user.save(function(err){
+          if(err){console.log(err)}
+          else{res.json(200)}
+        })
+      }
+    })
+
+};

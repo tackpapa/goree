@@ -66,7 +66,7 @@ exports.insertquery = (req, res, next) => {
   });
   T.get('users/search', { q: req.body.query, count: 12 }, function(err, reply) {
 
-    if (err) { console.log(err) }
+    if (err) { console.log("inserting query error",err) }
     res.render('list', {reply:reply});
 
   });
@@ -85,10 +85,10 @@ exports.findstar = (req, res, next) => {
     else {
     Question.find({ target :req.params.id}).populate('user').populate('response').exec(function(err, data){
       if(err){
-        console.log(err)
+        console.log("findstar error ",err)
       }
      else {
-       console.log(data)
+      
        res.render('star', {reply:reply, data:data})
      }
   })
