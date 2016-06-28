@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4DA5F4">
-    <meta name="csrf-token" content="<%= _csrf %>">
+    <meta name="csrf-token">
     <title> - Hackathon Starter</title>
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/main.css">
@@ -47,30 +47,28 @@
 </div>
 <div class="fluid-container">
 
-    <div class="jumbotron" style="width:100%; height:60%;background:url(http://www.massingenuity.com/wp-content/uploads/2012/08/Aligning-Stars.jpg)">
+  <h3 style="text-align:center">Which one are you talking about?</h3>
+<div class="col-md-10 col-md-offset-1" style="height:1000px;">
+<% for (var i = 0; i < reply.length; i++) { %>
+<div class="col-md-3" style="height:350px; width:31%; margin:10px; border:2px solid blue;">
+  <div class="col-md-10 col-md-offset-1">
+    <img style="width:120px; height:120px; padding:10px;" class="center-block"src="<%= reply[i].profile_image_url %>">
+  </div>
 
-        <br/><br/><br/>
-        <div style="border-radius:10px; background-color:white; width: 400px; height:150px; margin:0px auto;  opacity:1;" class="container">
-            <h2 style="font-size:40px; color:#0D2C54; text-align:center; opacity:1 !important;">Search Stars</h2>
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                  <form action="/insertquery" method="post">
-                      <input type="hidden" name="_csrf" value="<%=_csrf%>">
-                    <input type="text" class="form-control input-md"  name="query" placeholder="Search by Name"/>
-
-                    <span class="input-group-btn">
-                        <input class="btn btn-info btn-lg" type="submit" value="submit">
-                            <i class="glyphicon glyphicon-search"></i>
-
-                    </span>
-                  </form>
-                </div>
-            </div>
+  <div class="col-md-12" style="padding:0px;">
+    <h6>TwitterID: <span style="font-size:15px;color:blue;"><%=reply[i].screen_name%></span> </h6>
+    <h6>Name: <span style="font-size:15px;color:blue;"><%=reply[i].name%></span> </h6>
+    <h6 style="height:100px;overflow:scroll;">Description: <span style="font-size:15px;color:blue;"><%=reply[i].description%></span></h6>
+  </div>
+        <div class="col-md-12">
+          <a style="margin-top:5px;" href="/star/<%=reply[i].id%>"class="btn btn-primary center-block">Choose</a>
         </div>
-    </div>
+</div>
+<% } %>
 
 
-
+</div>
+</div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID-->

@@ -1,4 +1,7 @@
 'use strict';
+var Question = require("../models/Question");
+var User = require("../models/User");
+var Response = require("../models/Response");
 const _ = require('lodash');
 const async = require('async');
 const validator = require('validator');
@@ -45,12 +48,53 @@ exports.findt = (req, res, next) => {
     access_token: token.accessToken,
     access_token_secret: token.tokenSecret
   });
-  T.get('https://api.twitter.com/1.1/search/tweets.json?count=25&q=%24EURUSD&result_type=recent', (err, reply) => {
-
+  T.get('users/search', { q: 'eminem', count: 12 }, function(err, reply) {
+    console.log(reply)
     if (err) { console.log(err) }
-    res.status(res).json(reply);
+    console.log(reply[0].id, reply[1].id)
+    res.render('list', {reply:reply});
+
   });
 };
+exports.insertquery = (req, res, next) => {
+  const token = req.user.tokens.find(token => token.kind === 'twitter');
+  const T = new Twit({
+    consumer_key: process.env.TWITTER_KEY,
+    consumer_secret: process.env.TWITTER_SECRET,
+    access_token: token.accessToken,
+    access_token_secret: token.tokenSecret
+  });
+  T.get('users/search', { q: req.body.query, count: 12 }, function(err, reply) {
+
+    if (err) { console.log(err) }
+    res.render('list', {reply:reply});
+
+  });
+};
+exports.findstar = (req, res, next) => {
+  const token = req.user.tokens.find(token => token.kind === 'twitter');
+  const T = new Twit({
+    consumer_key: process.env.TWITTER_KEY,
+    consumer_secret: process.env.TWITTER_SECRET,
+    access_token: token.accessToken,
+    access_token_secret: token.tokenSecret
+  });
+
+  T.get('users/show', { user_id: req.params.id, count: 1 }, function(err, reply) {
+    if (err) { console.log(err) }
+    else {
+    Question.find({ target :req.params.id}).populate('user').populate('response').exec(function(err, data){
+      if(err){
+        console.log(err)
+      }
+     else {
+       console.log(data)
+       res.render('star', {reply:reply, data:data})
+     }
+  })
+}})
+}
+
 /**
  * GET /api/foursquare
  * Foursquare API example.
