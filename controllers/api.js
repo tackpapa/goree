@@ -83,12 +83,12 @@ exports.findstar = (req, res, next) => {
   T.get('users/show', { user_id: req.params.id, count: 1 }, function(err, reply) {
     if (err) { console.log(err) }
     else {
-    Question.find({ target :req.params.id}).populate('user').populate('response').exec(function(err, data){
+    Question.find({ target :req.params.id}).populate('user').populate('response').sort({date:'desc'}).exec(function(err, data){
       if(err){
         console.log("findstar error ",err)
       }
      else {
-      
+
        res.render('star', {reply:reply, data:data})
      }
   })

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4DA5F4">
     <meta name="csrf-token" content="<%= _csrf %>">
-    <title> - Hackathon Starter</title>
+    <title> Yo! Talk to me</title>
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -37,7 +37,7 @@
         <% if(user) { %>
 
           <li><a href=""><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
-          <li><a href="">My Cash: <%= user.money %></a></li>
+          <li><a href="/refillmoney">My Cash: <%= user.money %></a></li>
           <li><a href="/account"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
           <li><a href="/logout">Logout</a></li>
 <% } %>
@@ -68,14 +68,14 @@
 
             </div></form>
         </div>
-        <div class="col-md-8 col-md-offset-2" style="background-color:#FFB400; border-radius:10px;  height:150px;margin-top:70px;" >
-        <h3>Are you a fan?</h3>
-        <p>Find celebrities and ask heavy questions with a bet!</p>
+        <div class="col-md-5 col-md-offset-1" style="margin-right:5px;background-color:#FFB400; border-radius:10px;  height:200px;margin-top:30px;" >
+        <h1 style="color:#d9534f;">Are you a fan?</h1>
+        <h2>Find celebrities and ask heavy questions with a bet!</h2>
 
         </div>
-        <div class="col-md-8 col-md-offset-2" style="background-color:#7FB800; border-radius:10px;  height:150px;margin-top:30px;" >
-          <h3>Are you famous?</h3>
-        <p>Answer your fans and earn cash! (and donate maybe?)</p>
+        <div class="col-md-5 col-md-offset-0" style="margin-left:5px;background-color:#7FB800; border-radius:10px;  height:200px;margin-top:30px;" >
+          <h1 style="color:#428bca;">Are you famous?</h1>
+        <h2>Answer your fans and earn cash! (and donate maybe?)</h2>
         </div>
     </div>
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4DA5F4">
     <meta name="csrf-token">
-    <title> - Hackathon Starter</title>
+    <title> star list</title>
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -37,7 +37,7 @@
         <% if(user) { %>
 
           <li><a href=""><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
-          <li><a href="">My Cash: <%= user.money %></a></li>
+          <li><a href="/refillmoney">My Cash: <%= user.money %></a></li>
           <li><a href="/account"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
           <li><a href="/logout">Logout</a></li>
 <% } %>
@@ -49,21 +49,27 @@
 
   <h3 style="text-align:center">Which one are you talking about?</h3>
 <div class="col-md-10 col-md-offset-1" style="height:1000px;">
+
 <% for (var i = 0; i < reply.length; i++) { %>
-<div class="col-md-3" style="height:350px; width:31%; margin:10px; border:2px solid blue;">
-  <div class="col-md-10 col-md-offset-1">
-    <img style="width:120px; height:120px; padding:10px;" class="center-block"src="<%= reply[i].profile_image_url %>">
+<div class="col-md-3" style="height:280px; width:31%; margin:10px; box-shadow: 5px 5px 5px #888888; background-color:#00A6ED">
+
+  <div class="col-md-10 col-md-offset-1" style="background-image:url("<%=reply[i].profile_background_image_url_https%>");">
+    <img style="width:120px; height:120px; border-radius:90px;margin-top:20px; border:4px solid #FFB400;" class="center-block"src="<%= reply[i].profile_image_url_https %>">
   </div>
 
-  <div class="col-md-12" style="padding:0px;">
-    <h6>TwitterID: <span style="font-size:15px;color:blue;"><%=reply[i].screen_name%></span> </h6>
-    <h6>Name: <span style="font-size:15px;color:blue;"><%=reply[i].name%></span> </h6>
-    <h6 style="height:100px;overflow:scroll;">Description: <span style="font-size:15px;color:blue;"><%=reply[i].description%></span></h6>
+
+  <div class="col-md-12">
+    <h6 style="text-align:center;">TwitterID: <span style="font-size:15px;color:white;"><%=reply[i].screen_name%></span> </h6>
+    <h6 style="text-align:center;">Name: <span style="font-size:15px;color:white;"><%=reply[i].name%></span> </h6>
+    <h6 style="height:auto; text-align:center;">Followers: <span style="font-size:15px;color:white;"><%=reply[i].followers_count%></span></h6>
+    <div class="col-md-12">
+      <a style="margin-top:5px; color:white;" href="/star/<%=reply[i].id%>"class="btn btn-warning center-block">Choose</a>
+    </div>
   </div>
-        <div class="col-md-12">
-          <a style="margin-top:5px;" href="/star/<%=reply[i].id%>"class="btn btn-primary center-block">Choose</a>
-        </div>
+
 </div>
+
+
 <% } %>
 
 

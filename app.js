@@ -129,6 +129,9 @@ app.get('/star/:id', passportConfig.isAuthenticated, apiController.findstar)
 app.post('/postquestion', questionController.postquestion)
 app.post('/postresponse/:id', questionController.postresponse)
 app.get('/chargeone/:id', questionController.chargeone)
+app.get('/refillmoney', passportConfig.isAuthenticated, questionController.refillmoney)
+app.post('/refill', passportConfig.isAuthenticated, questionController.refill)
+app.get('/notenoughmoney', questionController.notenough)
 
 /**
  * API examples routes.
