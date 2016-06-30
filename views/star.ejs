@@ -120,7 +120,7 @@
                                 </p>
                             </div>
                             <div class="col-md-10">
-                                <p class="qtitle" style="margin-top:20px;font-size:25px;text-align:center">
+                                <p style="color:#24305E;margin-top:20px;font-size:25px;text-align:center">
                                     <%=data[i].title%>&nbsp;for&nbsp;$
                                         <%=data[i].price%>
                                 </p>
@@ -174,9 +174,9 @@
 
 
 
-                                                                <% if ( user.twitter != reply.id || user._id != data[i].user.id ) {  %>
-                                                                    <button data-toggle="modal" data-target="#myModal<%= i %>" style="margin-top:5px; margin-bottom:5px;background-color:#d9534f" class="btn btn-warning pull-right">Read Context</button>
-                                                                    <%}%>
+                                      <% if ( user.twitter != reply.id && user.id != data[i].user._id ) {  %>
+                                          <button data-toggle="modal" data-target="#myModal<%= i %>" style="margin-top:5px; margin-bottom:5px;background-color:#d9534f" class="btn btn-warning pull-right">Read Context</button>
+                                          <%}%>
 
                             </div>
                         </div>
