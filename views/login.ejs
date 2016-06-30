@@ -24,7 +24,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if (user==undefined) { %>
         <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Create Account</a></li>
+      
         <li></li>
         <% } %>
         <% if(user) { %>
@@ -42,7 +42,7 @@
 <div class="page-header">
 <h3>Sign in</h3>
 </div>
-<form method="POST" >
+<!-- <form method="POST" >
 <input type="hidden" name="_csrf" value="<%=_csrf%>">
 <div class="form-group">
   <label for="email" class=" ">Email</label>
@@ -65,7 +65,8 @@
   <div class="">
     <hr/>
   </div>
-</div>
+</div> -->
+<h2>You must need a twitter account!</h2>
 <div class="form-group">
   <div class="">
     <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social"><i class="fa fa-twitter"></i>Sign in with Twitter</a>
