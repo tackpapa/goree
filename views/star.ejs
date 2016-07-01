@@ -35,7 +35,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <% if (user==undefined) { %>
                         <li><a href="/login">Login</a></li>
-                      
+
                         <li></li>
                         <% } %>
                             <% if(user) { %>
@@ -201,7 +201,7 @@
                     </div>
                     <script>
                         function call() {
-                            popup = window.open('http://localhost:3000/chargeone/<%=user._id%>', "_blank", "toolbar=yes,scrollbars=yes,resizable=no,top=600,left=-300,width=1,height=1");
+                            popup = window.open('http://54.191.147.40/chargeone/<%=user._id%>', "_blank", "toolbar=yes,scrollbars=yes,resizable=no,top=600,left=-300,width=1,height=1");
                             setTimeout(wait, 500);
                         }
 
