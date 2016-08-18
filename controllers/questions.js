@@ -35,6 +35,17 @@ exports.postquestion = (req, res) => {
     })
 
 };
+exports.rejected = (req, res) => {
+  Question.findOne({
+    _id: req.params.id
+  }, function (err, question){
+    if(err){console.log('rejected error', err)}
+    else {
+          question.rejected = True;
+          res.redirect('/star/' + req.body.twitter)
+        }
+  })
+}
 exports.postresponse = (req, res) => {
     Question.findOne({
         _id: req.params.id
@@ -51,18 +62,26 @@ exports.postresponse = (req, res) => {
                     if (err) {
                         console.log(err);
                     } else {
-                        var updateMoney = req.user.money + question.price
+                      if (question.answered==false){
+                        var updateMoney = req.user.money + question.price;
                         User.update({
                             _id: req.user._id
                         }, {
                             money: updateMoney
                         }, function(err) {
                             if (err) {
-                                console.log(err)
+                                console.log(err, "updating money error")
                             } else {
-                                res.redirect('/star/' + req.body.twitter)
+                              question.answered=true;
+                              question.save(function(err){
+                                if (err){console.log(err, 'error in updating question.answered')}
+                                else{ res.redirect('/star/' + req.body.twitter)}
+                              })
+
                             }
                         });
+                      }
+                      else{res.redirect('/star/' + req.body.twitter)}
                     }
                 })
 

@@ -64,7 +64,7 @@ exports.insertquery = (req, res, next) => {
     access_token: token.accessToken,
     access_token_secret: token.tokenSecret
   });
-  T.get('users/search', { q: req.body.query, count: 12 }, function(err, reply) {
+  T.get('users/search', { q: req.body.query, count: 24 }, function(err, reply) {
 
     if (err) { console.log("inserting query error",err) }
     res.render('list', {reply:reply});

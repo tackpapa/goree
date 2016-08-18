@@ -128,6 +128,7 @@ app.post('/insertquery', passportConfig.isAuthenticated, apiController.insertque
 app.get('/star/:id', passportConfig.isAuthenticated, apiController.findstar)
 app.post('/postquestion', questionController.postquestion)
 app.post('/postresponse/:id', questionController.postresponse)
+app.post('/rejected/:id', questionController.rejected)
 app.get('/chargeone/:id', questionController.chargeone)
 app.get('/refillmoney', passportConfig.isAuthenticated, questionController.refillmoney)
 app.post('/refill', passportConfig.isAuthenticated, questionController.refill)
