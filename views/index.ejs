@@ -31,13 +31,13 @@
       <ul class="nav navbar-nav navbar-right">
         <% if (user==undefined) { %>
         <li><a href="/login">Login</a></li>
-        
+
         <li></li>
         <% } %>
         <% if(user) { %>
 
-          <li><a href="/star/<%=user.twitter%>"><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
-          <li><a href="/refillmoney">My Cash: <%= user.money %></a></li>
+          <li><a href="/star/<%=user.instagram%>"><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
+          <li><a href="/refillmoney"> <%= user.money %>고리</a></li>
           <li><a href="/account"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
           <li><a href="/logout">Logout</a></li>
 <% } %>
@@ -52,7 +52,7 @@
         <br/><br/><br/>
         <div style="border-radius:10px; background-color:white; width: 400px; height:150px; margin:0px auto;  opacity:1;" class="container">
             <h2 style="font-size:40px; color:#0D2C54; text-align:center; opacity:1 !important;">Search Stars</h2>
-            <form action="/insertquery" method="post">
+            <form action="/instaquery" method="post">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
 

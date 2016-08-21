@@ -6,7 +6,8 @@ const responseSchema = new mongoose.Schema({
   user:{type:Schema.Types.ObjectId, ref: 'User'},
   question:{type:Schema.Types.ObjectId, ref: 'Question'},
   date:{type:Date, default:Date.now },
-  response:String
+  response:String,
+  donate: {type:Boolean, default:false},
 });
 
 const Response = mongoose.model('Response', responseSchema);

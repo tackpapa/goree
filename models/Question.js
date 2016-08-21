@@ -9,6 +9,7 @@ const questionSchema = new mongoose.Schema({
   date:{type:Date, default:Date.now },
   price: { type: Number, default: 0},
   target:Number,
+  private: {type:Boolean, default:false},
   answered: {type:Boolean, default:false},
   rejected: {type:Boolean, default:false},
   response:[{type:Schema.Types.ObjectId, ref: 'Response'}]

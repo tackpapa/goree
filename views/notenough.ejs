@@ -30,7 +30,7 @@
         <% if(user) { %>
 
           <li><a href=""><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
-          <li><a href="">My Cash: <%= user.money %></a></li>
+          <li><a href=""> <%= user.money %>고리</a></li>
           <li><a href="/account"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
           <li><a href="/logout">Logout</a></li>
 <% } %>
@@ -39,8 +39,8 @@
   </div>
 </div>
 <div class="col-md-10 col-md-offset-1">
-<h1 style="text-align:center;">You don't have enough money to post this question.</h1>
-<h2 style="text-align:center;">You can charge <a href="/refillmoney">here</a></h2>
+<h1 style="text-align:center;">이부탁을 할만큼의 고리가 부족합니다!</h1>
+<h2 style="text-align:center;"> <a href="/refillmoney">이곳</a>에서 충전해주세요!</h2>
 </div>
 
     <script src="/js/lib/jquery-2.2.0.min.js"></script>

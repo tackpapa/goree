@@ -10,11 +10,12 @@ exports.postquestion = (req, res) => {
 
     var question = new Question({
         user: req.body.user,
-        title: req.body.title,
         context: req.body.context,
         price: req.body.price,
-        target: req.body.target
+        target: req.body.target,
+        private: req.body.private
     })
+    console.log(req.body, "KAKAKAKAK")
     question.save(function(err) {
         if (err) {
             console.log(err)
@@ -50,11 +51,12 @@ exports.postresponse = (req, res) => {
     Question.findOne({
         _id: req.params.id
     }, function(err, question) {
-
+          console.log(req.body)
         var response = new Response({
             user: req.body.user,
             question: req.body.question,
-            response: req.body.response
+            response: req.body.response,
+            donate: req.body.donate
         })
         response.save(function(err) {
                 question.response.push(response);
@@ -75,13 +77,13 @@ exports.postresponse = (req, res) => {
                               question.answered=true;
                               question.save(function(err){
                                 if (err){console.log(err, 'error in updating question.answered')}
-                                else{ res.redirect('/star/' + req.body.twitter)}
+                                else{ res.redirect('/star/' + req.body.instagram)}
                               })
 
                             }
                         });
                       }
-                      else{res.redirect('/star/' + req.body.twitter)}
+                      else{res.redirect('/star/' + req.body.instagram)}
                     }
                 })
 

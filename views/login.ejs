@@ -24,13 +24,13 @@
       <ul class="nav navbar-nav navbar-right">
         <% if (user==undefined) { %>
         <li><a href="/login">Login</a></li>
-      
+
         <li></li>
         <% } %>
         <% if(user) { %>
 
           <li><a href=""><img src="<%= user.profile.picture %>" alt=""><%= user.profile.name %></a></li>
-          <li><a href="">My Cash: <%= user.money %></a></li>
+          <li><a href=""> <%= user.money %>고리</a></li>
           <li><a href="/account"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
           <li><a href="/logout">Logout</a></li>
   <% } %>
@@ -66,10 +66,11 @@
     <hr/>
   </div>
 </div> -->
-<h2>You must need a twitter account!</h2>
+<h2>You must need a instagram account!</h2>
 <div class="form-group">
   <div class="">
-    <a href="/auth/twitter" class="btn btn-block btn-twitter btn-social"><i class="fa fa-twitter"></i>Sign in with Twitter</a>
+
+      <a href="/auth/instagram" class="btn btn-block btn-instagram btn-social"><i class="fa fa-instagram"></i>Sign in with Instagram</a>
   </div>
 </div>
 </form>
